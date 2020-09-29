@@ -1,0 +1,47 @@
+<body>
+    <div class="container">
+       
+        <div class="principal" *ngIf="inicio">
+          <button class="button" (click)="startGame()">Start</button>
+        </div>
+        <div *ngIf="mostarTabuleiro">
+          <ul>
+            <li class="border-bottom border-right" [class.img-x]="exibirX(0, 0)" [class.img-o]="exibirO(0, 0)"
+              [class.vitoria]="exibirVitoria(0, 0)" (click)="play(0, 0)">
+            </li>
+            <li class="border-bottom border-right" [ngClass]="{'img-x': exibirX(0, 1),'img-o': exibirO(0, 1),
+              'vitoria': exibirVitoria(0, 1) }" (click)="play(0, 1)">
+            </li>
+            <li class="border-bottom" [ngClass]="{'img-x': exibirX(0, 2),'img-o': exibirO(0, 2),
+              'vitoria': exibirVitoria(0, 2) }" (click)="play(0, 2)">
+            </li>
+            <li class="border-bottom border-right" [ngClass]="{'img-x': exibirX(1, 0),'img-o': exibirO(1, 0),
+              'vitoria': exibirVitoria(1, 0) }" (click)="play(1, 0)">
+            </li>
+            <li class="border-bottom border-right" [ngClass]="{'img-x': exibirX(1, 1),'img-o': exibirO(1, 1),
+              'vitoria': exibirVitoria(1, 1) }" (click)="play(1, 1)">
+            </li>
+            <li class="border-bottom" [ngClass]="{'img-x': exibirX(1, 2),'img-o': exibirO(1, 2),
+              'vitoria': exibirVitoria(1, 2) }" (click)="play(1, 2)">
+            </li>
+            <li class="border-right" [ngClass]="{'img-x': exibirX(2, 0),'img-o': exibirO(2, 0),
+              'vitoria': exibirVitoria(2, 0) }" (click)="play(2, 0)">
+            </li>
+            <li class="border-right" [ngClass]="{'img-x': exibirX(2, 1),'img-o': exibirO(2, 1),
+              'vitoria': exibirVitoria(2, 1) }" (click)="play(2, 1)">
+            </li>
+            <li [ngClass]="{'img-x': exibirX(2, 2),'img-o': exibirO(2, 2),
+              'vitoria': exibirVitoria(2, 2) }" (click)="play(2, 2)">
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="final" >
+            <p *ngIf="jogador==2">Jogador X Venceu \o/</p>
+            <p *ngIf="jogador==1">Jogador O Venceu \o/</p>
+            <p *ngIf="jogador==0">O jogo empatou!!!</p>
+            <br />
+            <button class="button1" (click)="newGame()">New Game</button>
+        </div>
+      
+      </div>
+    </body>
